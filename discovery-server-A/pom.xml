@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.partha</groupId>
-	<artifactId>movie-data-service-A</artifactId>
+	<artifactId>discovery-server-A</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>movie-data-service-A</name>
-	<description>Data Service</description>
+	<name>discovery-server-A</name>
+	<description>Used for Eureka Server</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -21,14 +21,10 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-client -->
-		<dependency>
-		    <groupId>org.springframework.cloud</groupId>
-		    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -41,7 +37,7 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

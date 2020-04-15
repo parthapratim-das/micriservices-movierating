@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +22,12 @@ import com.partha.moviecatalogserviceA.models.Rating;
 @RequestMapping("/catalog")
 public class CatalogService {
 	
+	@Autowired
+	RestTemplate restTemplate;
+	
 	@RequestMapping("/{userid}")
 	public List<CatalogItem> getCatalog(@PathVariable("userid")String userId)
 	{
-		
-		RestTemplate restTemplate = new RestTemplate();
-		
 		//List<Rating> ratings = Arrays.asList(new Rating("E001",3),
 		//									 new Rating("B008",4));
 		//calling API for movie details
@@ -41,13 +42,13 @@ public class CatalogService {
 		//List<Rating> ratings = (List<Rating>) restTemplate.getForObject("http://localhost:8082/ratings/"+userId, Rating.class);
 		
 		ResponseEntity<List<Rating>> ratingResponse =
-		        restTemplate.exchange("http://localhost:8083/ratings/"+userId,
+		        restTemplate.exchange("http://movie-data-service-new/ratings/"+userId,
 		                    HttpMethod.GET, null, new ParameterizedTypeReference<List<Rating>>() {
 		            });
 		List<Rating> ratings = ratingResponse.getBody();
 		
 		catalogItems= ratings.stream().map(rating -> {
-			Movie movie = (Movie)restTemplate.getForObject("http://localhost:8082/movies/"+rating.getMovieId(), Movie.class);
+			Movie movie = (Movie)restTemplate.getForObject("http://movie-info-service-new/movies/"+rating.getMovieId(), Movie.class);
 			return new CatalogItem(movie.getMovieName(), movie.getMovieDesc(), rating.getRating());
 
 		}).collect(Collectors.toList());
