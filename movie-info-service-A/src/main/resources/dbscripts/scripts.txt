@@ -1,0 +1,8 @@
+insert into Movies(id, movie_desc, movie_id, movie_name) values (101, 'Transformers', 'E001', 'English Movie Fiction');
+insert into Movies(id, movie_desc, movie_id, movie_name) values (102, 'Avengers: Endgame', 'E002', 'English Movie Test data');
+insert into Movies(id, movie_desc, movie_id, movie_name) values (103, 'Joker', 'E003', 'English Movie');
+insert into Movies(id, movie_desc, movie_id, movie_name) values (104, 'URI', 'B001', 'Hindi Movie Action');
+insert into Movies(id, movie_desc, movie_id, movie_name) values (105, 'Thackeray', 'B001', 'Hindi Movie Political History');
+insert into Movies(id, movie_desc, movie_id, movie_name) values (106, 'Jurassic World', 'E007', 'English Movie Fiction');
+insert into Movies(id, movie_desc, movie_id, movie_name) values (107, 'Manganyan', 'B008', 'Hindi Movie Drama');
+insert into Movies(id, movie_desc, movie_id, movie_name) values (108, 'WAR', 'B003', 'Hindi Movie Action');
